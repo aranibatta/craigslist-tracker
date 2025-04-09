@@ -5,8 +5,8 @@ const cheerio = require('cheerio');
 const dotenv = require('dotenv');
 const { Anthropic } = require('@anthropic-ai/sdk');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables from root directory
+dotenv.config({ path: '../.env' });
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
