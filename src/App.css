@@ -1,38 +1,333 @@
+/* Main App Styles */
 .App {
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Listings Manager Styles */
+.listings-manager {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.control-panel {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.header-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.control-panel h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.clickable-header {
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.clickable-header:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.add-btn {
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #7d3c98;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.listings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.listings-table th {
+  background-color: #f5f7fa;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.listings-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.listings-table tr:last-child td {
+  border-bottom: none;
+}
+
+.listings-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.listings-table tr.applied {
+  background-color: #f0f7f0;
+}
+
+.listings-table a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.listings-table a:hover {
+  text-decoration: underline;
+}
+
+/* Inline editing styles */
+.editable-cell {
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+  cursor: text;
+  min-height: 22px;
+}
+
+.editable-cell:hover {
+  background-color: #eef7ff;
+  box-shadow: 0 0 0 1px #d1e6fa;
+}
+
+.inline-edit-input {
+  width: 100%;
+  padding: 2px 5px;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: white;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-btn {
+  background-color: #3498db;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Form Styles */
+.form-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.form-container h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.form-group.checkbox input {
+  margin-right: 8px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* URL input with scraper */
+.url-group .url-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.url-input-container input[type="url"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.scrape-btn {
+  background-color: #9b59b6;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.scrape-btn:hover:not(:disabled) {
+  background-color: #8e44ad;
+}
+
+.scrape-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.scrape-error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.scrape-success-msg {
+  color: #27ae60;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+input.scrape-success {
+  border-color: #27ae60;
+  background-color: #f0fff0;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #7f8c8d;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

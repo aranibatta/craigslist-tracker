@@ -1,0 +1,21 @@
+{
+  "name": "craigslist-scraper-service",
+  "version": "1.0.0",
+  "description": "Service to scrape Craigslist listings",
+  "main": "index.js",
+  "scripts": {
+    "start": "bun run index.js",
+    "dev": "bun --watch index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "axios": "^1.6.5",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
