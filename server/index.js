@@ -57,8 +57,7 @@ app.post('/scrape', async (req, res) => {
     // Construct prompt for Claude
     const prompt = `
     You are an expert at extracting structured information from Craigslist listings.
-    I have a Craigslist listing with the following content. Please extract the address, 
-    listing creator's name (or poster's name), and any contact information.
+    I have a Craigslist listing with the following content. Please extract all the requested information.
     
     Title: ${scrapedData.title}
     
@@ -74,9 +73,11 @@ app.post('/scrape', async (req, res) => {
     - address: The physical address of the listing or location information
     - listingCreator: The name of the person who created the listing
     - contactInfo: Any contact information like phone, email (if present)
+    - price: The price of the listing (if available)
+    - allowsPets: Boolean (true or false) indicating if pets are allowed, based on any mentions of pets in the listing
     
-    For any fields where information is not available, use an empty string.
-    Format your entire response as a valid JSON object with these three fields only.
+    For any fields where information is not available, use an empty string for text fields or false for boolean fields.
+    Format your entire response as a valid JSON object with these five fields only.
     `;
     
     // Call Claude API
@@ -121,6 +122,8 @@ app.post('/scrape', async (req, res) => {
       address: extractedData.address || '',
       listingCreator: extractedData.listingCreator || '',
       contactInfo: extractedData.contactInfo || '',
+      price: extractedData.price || '',
+      allowsPets: extractedData.allowsPets || false,
     };
     
     console.log('Successfully extracted data:', listingData);

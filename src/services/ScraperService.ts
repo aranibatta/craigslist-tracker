@@ -4,6 +4,8 @@ interface ScrapeResponse {
     address: string;
     listingCreator: string;
     contactInfo: string;
+    price: string;
+    allowsPets: boolean;
   };
   error?: string;
 }

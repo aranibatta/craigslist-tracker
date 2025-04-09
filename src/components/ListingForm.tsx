@@ -14,6 +14,8 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
     address: '',
     listingCreator: '',
     contactInfo: '',
+    price: '',
+    allowsPets: false,
     hasApplied: false,
     notes: ''
   });
@@ -29,6 +31,8 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
         address: initialData.address,
         listingCreator: initialData.listingCreator,
         contactInfo: initialData.contactInfo,
+        price: initialData.price || '',
+        allowsPets: initialData.allowsPets || false,
         hasApplied: initialData.hasApplied,
         notes: initialData.notes || ''
       });
@@ -68,7 +72,9 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
           ...prev,
           address: response.data?.address || prev.address,
           listingCreator: response.data?.listingCreator || prev.listingCreator,
-          contactInfo: response.data?.contactInfo || prev.contactInfo
+          contactInfo: response.data?.contactInfo || prev.contactInfo,
+          price: response.data?.price || prev.price,
+          allowsPets: response.data?.allowsPets || prev.allowsPets
         }));
         setScrapeSuccess(true);
       } else {
@@ -154,7 +160,32 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
           />
         </div>
 
-        <div className="form-group checkbox">
+        <div className="form-group">
+          <label htmlFor="price">Price</label>
+          <input
+            id="price"
+            name="price"
+            type="text"
+            value={formData.price}
+            onChange={handleChange}
+            placeholder="$1000/month"
+          />
+        </div>
+
+        <div className="form-group checkbox-group">
+          <label htmlFor="allowsPets">
+            <input
+              id="allowsPets"
+              name="allowsPets"
+              type="checkbox"
+              checked={formData.allowsPets}
+              onChange={handleChange}
+            />
+            Allows Pets
+          </label>
+        </div>
+
+        <div className="form-group checkbox-group">
           <label htmlFor="hasApplied">
             <input
               id="hasApplied"

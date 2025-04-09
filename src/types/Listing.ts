@@ -5,6 +5,8 @@ export interface Listing {
   listingCreator: string;
   contactInfo: string;
   hasApplied: boolean;
+  price?: string;
+  allowsPets?: boolean;
   notes?: string;
   dateAdded: string;
   dateUpdated: string;
