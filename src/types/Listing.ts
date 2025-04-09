@@ -7,6 +7,8 @@ export interface Listing {
   hasApplied: boolean;
   price?: string;
   allowsPets?: boolean;
+  bedrooms?: string;
+  bathrooms?: string;
   notes?: string;
   dateAdded: string;
   dateUpdated: string;

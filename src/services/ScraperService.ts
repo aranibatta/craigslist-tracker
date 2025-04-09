@@ -6,6 +6,8 @@ interface ScrapeResponse {
     contactInfo: string;
     price: string;
     allowsPets: boolean;
+    bedrooms: string;
+    bathrooms: string;
   };
   error?: string;
 }

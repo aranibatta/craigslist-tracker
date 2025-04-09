@@ -118,6 +118,8 @@ const ListingsTable: React.FC<ListingsTableProps> = ({
             <th>Listing Creator</th>
             <th>Contact Info</th>
             <th>Price</th>
+            <th>Bed</th>
+            <th>Bath</th>
             <th>Pets</th>
             <th>Applied</th>
             <th>Updated</th>
@@ -148,6 +150,12 @@ const ListingsTable: React.FC<ListingsTableProps> = ({
               </td>
               <td>
                 {renderEditableCell(listing, 'price', listing.price || '')}
+              </td>
+              <td>
+                {renderEditableCell(listing, 'bedrooms', listing.bedrooms || '')}
+              </td>
+              <td>
+                {renderEditableCell(listing, 'bathrooms', listing.bathrooms || '')}
               </td>
               <td>
                 <input

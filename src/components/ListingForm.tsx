@@ -15,6 +15,8 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
     listingCreator: '',
     contactInfo: '',
     price: '',
+    bedrooms: '',
+    bathrooms: '',
     allowsPets: false,
     hasApplied: false,
     notes: ''
@@ -32,6 +34,8 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
         listingCreator: initialData.listingCreator,
         contactInfo: initialData.contactInfo,
         price: initialData.price || '',
+        bedrooms: initialData.bedrooms || '',
+        bathrooms: initialData.bathrooms || '',
         allowsPets: initialData.allowsPets || false,
         hasApplied: initialData.hasApplied,
         notes: initialData.notes || ''
@@ -74,6 +78,8 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
           listingCreator: response.data?.listingCreator || prev.listingCreator,
           contactInfo: response.data?.contactInfo || prev.contactInfo,
           price: response.data?.price || prev.price,
+          bedrooms: response.data?.bedrooms || prev.bedrooms,
+          bathrooms: response.data?.bathrooms || prev.bathrooms,
           allowsPets: response.data?.allowsPets || prev.allowsPets
         }));
         setScrapeSuccess(true);
@@ -168,8 +174,34 @@ const ListingForm: React.FC<ListingFormProps> = ({ onSubmit, initialData, onCanc
             type="text"
             value={formData.price}
             onChange={handleChange}
-            placeholder="$1000/month"
+            placeholder="$X,XXX/month"
           />
+        </div>
+
+        <div className="form-row">
+          <div className="form-group half-width">
+            <label htmlFor="bedrooms">Bedrooms</label>
+            <input
+              id="bedrooms"
+              name="bedrooms"
+              type="text"
+              value={formData.bedrooms}
+              onChange={handleChange}
+              placeholder="1, 2, etc."
+            />
+          </div>
+
+          <div className="form-group half-width">
+            <label htmlFor="bathrooms">Bathrooms</label>
+            <input
+              id="bathrooms"
+              name="bathrooms"
+              type="text"
+              value={formData.bathrooms}
+              onChange={handleChange}
+              placeholder="1, 1.5, etc."
+            />
+          </div>
         </div>
 
         <div className="form-group checkbox-group">
